@@ -46,39 +46,39 @@ html {
 
   /* ---- components ---- */
 
-  .game {
+  .fWorld {
     text-align: center;
     display: flex;
     flex-direction: column;
     height: 100%;
   }
 
-  .game header {
+  .fWorld header {
     height: 50px;
     display: flex;
     align-items: center;
   }
 
-  .game .lives {
+  .fWorld .lives {
     flex: 1;
   }
 
-  .game .score {
+  .fWorld .score {
     flex: 1;
   }
 
-  .game .label {
+  .fWorld .label {
     font-weight: bold;
   }
 
-  .game .value {
+  .fWorld .value {
     font-style: italic;
   }
 
-  .game .canvas-container {
+  .fWorld .canvas-container {
     flex: 1;
   }
-  
+
 .testing {
   color: red;
   background-color: rebeccapurple;
