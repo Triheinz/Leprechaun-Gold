@@ -3,6 +3,7 @@ class FWorld {
     this.canvas = null;
     this.ctx = null;
     this.humans = [];
+    this.clovers = [];
     this.leprechaun = null;
     this.gameIsOver = false;
     this.fWorldScreen = fWorldScreen;
@@ -35,6 +36,7 @@ class FWorld {
     });
 
     this.startLoop();
+
   }
 
   startLoop() {
@@ -45,7 +47,14 @@ class FWorld {
         this.humans.push(newHumans);
       }
 
+      if (Math.random() > 0.97) {
+        const randomY = Math.floor((this.canvas.height - 15) * Math.random());
+        const newClovers = new Clovers(this.canvas, randomY, 3);
+        this.clovers.push(newClovers);
+      }
+
       this.checkSteal();
+      this.gaveLuck();
 
       this.leprechaun.updatePosition();
       this.leprechaun.handleScreenCollision();
@@ -55,11 +64,20 @@ class FWorld {
         return humans.isInsideScreen();
       });
 
+      this.clovers = this.clovers.filter((clovers) => {
+        clovers.updatePosition();
+        return clovers.isInsideScreen();
+      });
+
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
       this.leprechaun.draw();
       this.humans.forEach((humans) => {
         humans.draw();
+      });
+
+      this.clovers.forEach((clovers) => {
+        clovers.draw();
       });
 
       if (!this.gameIsOver) {
@@ -72,6 +90,7 @@ class FWorld {
     window.requestAnimationFrame(loop);
   }
 
+
   checkSteal() {
     this.humans.forEach((humans) => {
       if (this.leprechaun.didSteal(humans)) {
@@ -81,14 +100,29 @@ class FWorld {
         humans.x = 0 - humans.size;
 
         if (this.leprechaun.gold === 0) {
-          this.gameIsOver();
+          this.gameOver();
+        }
+      }
+    });
+  }
+
+  gaveLuck() {
+    this.clovers.forEach((clovers) => {
+      if (this.leprechaun.gaveLuck(clovers)) {
+        this.leprechaun.addGold();
+        console.log('gold', this.leprechaun.gold);
+
+        clovers.x = 0 - clovers.size;
+
+        if (this.leprechaun.gold === 0) {
+          this.gameOver();
         }
       }
     });
   }
 
   gameOver() {
-    this.gameIsOver = true;
+    this.gameOver = true;
     endGame(this.score);
   }
 

@@ -26,14 +26,13 @@ function createIntroScreen() {
 function removeIntroScreen() {
   introScreen.remove();
 
-
 }
 
 function createfWorldScreen() {
   fWorldScreen = buildDom(`
   <main class ="rainbow container">
     <header>
-      <div class="Gold">
+      <div class="gold">
         <span class ="label"> Gold: </span>
         <span class ="value"></span>
       </div>
@@ -53,16 +52,11 @@ function createfWorldScreen() {
   return fWorldScreen;
 }
 
-function startGame() {
-  removeIntroScreen();
-  createfWorldScreen();
-
-  fWorld = new FWorld(fWorldScreen);
-  //fWorld.fWorldScreen = fWorldScreen;
-  fWorld.start();
+function removefWorldScreen() {
+  fWorldScreen.remove();
 }
 
-function createGameOverScreen(){
+function createGameOverScreen(score) {
   gameOverScreen = buildDom(`
     <main>
     <h1>Game over</h1>
@@ -70,17 +64,32 @@ function createGameOverScreen(){
     <button>Restart</button>
     </main>
   `);
-  const button = gameOverScreen.querySelector("button");
-  button.addEventlistener('click',startGame)
+  const button = gameOverScreen.querySelector('button');
+  button.addEventListener('click', startGame);
+
+  document.body.appendChild(gameOverScreen);
 }
 
-function endGame(score){
+function removeGameOverScreen() {
+  gameOverScreen.remove();
+}
+
+function startGame() {
+  removeIntroScreen();
+  if (gameOverScreen){
+    removeGameOverScreen();
+  }
+  createfWorldScreen();
+
+  fWorld = new FWorld(fWorldScreen);
+  //fWorld.fWorldScreen = fWorldScreen;
+  fWorld.start();
+}
+
+function endGame(score) {
   removefWorldScreen();
   createGameOverScreen(score);
-
 }
 
-window.addEventListener('load',()=>{
-  createIntroScreen();
- // let rainbow= new Rainbow()
-});
+
+window.addEventListener('load',createIntroScreen);

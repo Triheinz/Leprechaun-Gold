@@ -78,9 +78,7 @@ html {
   .rainbow .canvas-container {
     flex: 1;
     height: 800px;
+    
   }
 
-.testing {
-  color: red;
-  background-color: rebeccapurple;
-}
+
