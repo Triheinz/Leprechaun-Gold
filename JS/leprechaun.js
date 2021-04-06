@@ -4,7 +4,7 @@ class Leprechaun {
     this.ctx = this.canvas.getContext("2d");
 
     this.gold= gold;
-    this.size= 100;
+    this.size= 80;
     this.x = 50;
     this.y = (this.canvas.height/2)- this.size/2;
 
@@ -40,7 +40,7 @@ class Leprechaun {
   const screenBottom = this.canvas.height;
 
   const leprechaunTop = this.y;
-  const leprechaunbottom = this.y + this.size;
+  const leprechaunBottom = this.y + this.size;
 
   const screenLeft = 0;
   const screenRight = this.canvas.width;
@@ -51,9 +51,8 @@ class Leprechaun {
   if (leprechaunBottom >= screenBottom) this.setDirection("up");
   else if (leprechaunTop<= screenTop) this.setDirection("down");
 
-  if (leprechaunLeft >= screenLeft) this.setDirection("right");
-  else if (leprechaunRight <= screenRigth) this.setDirection("left");
-
+  if (leprechaunLeft <= screenLeft) this.setDirection("right");
+  else if (leprechaunRight >= screenRight) this.setDirection("left");
 
   }
 
@@ -61,15 +60,15 @@ class Leprechaun {
     this.gold -= 1;
   }
 
-  addGold(){
+  /*addGold(){
     this.gold += 1;
-  }
+  }*/
 
   draw() {
-    this.ctx.fillstyle = '#66D3FA';
+    this.ctx.fillStyle = "#66D3FA";
     this.ctx.fillRect(this.x, this.y, this.size, this.size);
-
   }
+
   didSteal(humans) {
     const leprechaunLeft = this.x;
     const leprechaunRight = this.x + this.size;
@@ -82,18 +81,15 @@ class Leprechaun {
     const humanBottom = humans.y + this.size;
 
     const crossLeft = humanLeft <= leprechaunRight && humanLeft >= leprechaunLeft;
-    const cressRigth = humanRight >= leprechaunLeft && humanRight <= leprechaunRight;
+    const crossRight = humanRight >= leprechaunLeft && humanRight <= leprechaunRight;
     const crossBottom= humanBottom >= leprechaunTop && humanBottom <= leprechaunBottom;
     const crossTop = humanTop >= leprechaunBottom && humanTop <= leprechaunTop;
 
-    if ((crossleft || crossRight) && (crossTop || crossBottom)){
+    if ((crossLeft || crossRight) && (crossTop || crossBottom)){
       return true;
     } else {
       return false
     }
-
-
-
   }
 
 }

@@ -46,37 +46,38 @@ html {
 
   /* ---- components ---- */
 
-  .fWorld {
+  .rainbow {
     text-align: center;
     display: flex;
     flex-direction: column;
     height: 100%;
   }
 
-  .fWorld header {
+  .rainbow header {
     height: 50px;
     display: flex;
     align-items: center;
   }
 
-  .fWorld .lives {
+  .rainbow .lives {
     flex: 1;
   }
 
-  .fWorld .score {
+  .rainbow .score {
     flex: 1;
   }
 
-  .fWorld .label {
+  .rainbow .label {
     font-weight: bold;
   }
 
-  .fWorld .value {
+  .rainbow .value {
     font-style: italic;
   }
 
-  .fWorld .canvas-container {
+  .rainbow .canvas-container {
     flex: 1;
+    height: 800px;
   }
 
 .testing {

@@ -31,11 +31,11 @@ function removeIntroScreen() {
 
 function createfWorldScreen() {
   fWorldScreen = buildDom(`
-  <main class = "rainbow container">
+  <main class ="rainbow container">
     <header>
-      <div class= "Gold">
-        <span class = "label"> Gold: </span>
-        <span class = "value"></span>
+      <div class="Gold">
+        <span class ="label"> Gold: </span>
+        <span class ="value"></span>
       </div>
 
       <div class="score">
@@ -44,7 +44,7 @@ function createfWorldScreen() {
       </div>
     </header>
 
-    <div class= "canvas-container">
+    <div class="canvas-container">
       <canvas></canvas>
     </div>
   </main>
@@ -60,6 +60,24 @@ function startGame() {
   fWorld = new FWorld(fWorldScreen);
   //fWorld.fWorldScreen = fWorldScreen;
   fWorld.start();
+}
+
+function createGameOverScreen(){
+  gameOverScreen = buildDom(`
+    <main>
+    <h1>Game over</h1>
+    <p>Your score:<span>${score}</span></p>
+    <button>Restart</button>
+    </main>
+  `);
+  const button = gameOverScreen.querySelector("button");
+  button.addEventlistener('click',startGame)
+}
+
+function endGame(score){
+  removefWorldScreen();
+  createGameOverScreen(score);
+
 }
 
 window.addEventListener('load',()=>{

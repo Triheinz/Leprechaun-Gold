@@ -11,7 +11,7 @@ class Humans{
 
   draw(){
     this.ctx.fillStyle = "#FF6F27";
-    this.ctx.fillRect (this.x, this.y, this.size, this.size);
+    this.ctx.fillRect(this.x, this.y, this.size, this.size);
   }
 
   updatePosition(){
@@ -20,7 +20,7 @@ class Humans{
 
   isInsideScreen(){
     const humanRight =  this.x + this.size;
-    const sreenLeft = 0;
+    const screenLeft = 0;
     const isInside = humanRight > screenLeft;
 
     return isInside;
