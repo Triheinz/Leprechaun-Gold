@@ -1,16 +1,28 @@
 class Diamond {
-  constructor(canvas, positionY, speed) {
+  constructor(canvas, positionY, speed, diamondImgSrc) {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext('2d');
-    this.size = 15;
     this.x = this.canvas.width;
     this.y = positionY;
     this.speed = speed;
+    this.width = 30;
+    this.height = 30;
+    this.image = new Image();
+    this.image.src = diamondImgSrc;
+
+
   }
 
   draw() {
-    this.ctx.fillStyle = '#008000';
-    this.ctx.fillRect(this.x, this.y, this.size, this.size);
+    //ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+      this.ctx.drawImage(
+      this.image,
+      this.x,
+      this.y,
+      this.width,
+      this.height,
+    );
+
   }
 
   updatePosition() {

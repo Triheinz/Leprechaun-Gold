@@ -11,12 +11,15 @@ function buildDom(htmlString) {
 
 function createIntroScreen() {
   introScreen = buildDom(`<main>
+      <div class="introScreen">
       <h1>Water Ninja</h1>
       <button> Start </button>
+      </div>
     </main>
     `);
 
   document.body.appendChild(introScreen);
+  document.body.classList.add("intro-background")
   const startButton = introScreen.querySelector('button');
 
   startButton.addEventListener('click', startGame);
@@ -24,11 +27,12 @@ function createIntroScreen() {
 
 function removeIntroScreen() {
   introScreen.remove();
+  document.body.classList.remove('intro-background');
 }
 
 function createfWorldScreen() {
   fWorldScreen = buildDom(`
-  <main class ="water container">
+  <main class ="water-container">
     <header>
       <div class="lives">
         <span class ="label"> Lives: </span>
@@ -47,29 +51,35 @@ function createfWorldScreen() {
   </main>
     `);
   document.body.appendChild(fWorldScreen);
+  document.body.classList.add('fWorld-background');
   return fWorldScreen;
 }
 
 function removefWorldScreen() {
   fWorldScreen.remove();
+  document.body.classList.remove('fWorld-background');
 }
 
 function createGameOverScreen(score) {
   gameOverScreen = buildDom(`
     <main>
+    <div class="gameOver">
     <h1>Game over</h1>
     <p>Your score:<span>${score}</span></p>
     <button>Restart</button>
+    </div>
     </main>
   `);
   const button = gameOverScreen.querySelector('button');
   button.addEventListener('click', startGame);
 
   document.body.appendChild(gameOverScreen);
+  document.body.classList.add('gameOver-background');
 }
 
 function removeGameOverScreen() {
   gameOverScreen.remove();
+  document.body.classList.remove('gameOver-background');
 }
 
 function startGame() {

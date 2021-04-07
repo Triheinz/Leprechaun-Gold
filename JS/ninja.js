@@ -1,16 +1,22 @@
 class Ninja {
-  constructor(canvas, lives) {
+  constructor(canvas, lives, ninjaImgSrc) {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext('2d');
 
     this.lives = lives;
-    this.size = 80;
+    this.width = 50;
+    this.height = 100;
     this.x = 50;
-    this.y = this.canvas.height / 2 - this.size / 2;
+    this.y = this.canvas.height / 2 - this.width / 2;
 
     this.directionx = 0;
     this.directiony = 0;
-    this.speed = 1;
+    this.speed = 3;
+
+    this.image = new Image();
+    this.image.src = ninjaImgSrc;
+    this.frames = 7;
+    this.framesIndex = 0;
   }
 
   setDirection(direction) {
@@ -36,13 +42,13 @@ class Ninja {
     const screenBottom = this.canvas.height;
 
     const ninjaTop = this.y;
-    const ninjaBottom = this.y + this.size;
+    const ninjaBottom = this.y + this.height;
 
     const screenLeft = 0;
     const screenRight = this.canvas.width;
 
     const ninjaLeft = this.x;
-    const ninjaRight = this.x + this.size;
+    const ninjaRight = this.x + this.width;
 
     if (ninjaBottom >= screenBottom) this.setDirection('up');
     else if (ninjaTop <= screenTop) this.setDirection('down');
@@ -59,20 +65,42 @@ class Ninja {
     this.lives += 1;
   }
 
-  draw() {
-    
+  draw(framesCounter) {
+    //ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+      this.ctx.drawImage(
+      this.image,
+      this.framesIndex * Math.floor(this.image.width / this.frames),
+      0,
+      Math.floor(this.image.width / this.frames),
+      this.image.height,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    )
+    this.animate(framesCounter);
+
+  }
+
+  animate(framesCounter){
+    if(framesCounter % 2 === 0) {
+      this.framesIndex++
+
+      if(this.framesIndex > 7) this.framesIndex = 0;
+    }
+
   }
 
   didHurt(fire) {
     const ninjaLeft = this.x;
-    const ninjaRight = this.x + this.size;
+    const ninjaRight = this.x + this.width;
     const ninjaTop = this.y;
-    const ninjaBottom = this.y + this.size;
+    const ninjaBottom = this.y + this.height;
 
     const fireLeft = fire.x;
-    const fireRight = fire.x + this.size;
+    const fireRight = fire.x + this.width;
     const fireTop = fire.y;
-    const fireBottom = fire.y + this.size;
+    const fireBottom = fire.y + this.width;
 
     const crossLeft =
       fireLeft <= ninjaRight && fireLeft >= ninjaLeft;
@@ -91,14 +119,14 @@ class Ninja {
 
   beRich(diamonds) {
     const ninjaLeft = this.x;
-    const ninjaRight = this.x + this.size;
+    const ninjaRight = this.x + this.width;
     const ninjaTop = this.y;
-    const ninjaBottom = this.y + this.size;
+    const ninjaBottom = this.y + this.height;
 
     const diamondLeft = diamonds.x;
-    const diamondRight = diamonds.x + this.size;
+    const diamondRight = diamonds.x + this.width;
     const diamondTop = diamonds.y;
-    const diamondBottom = diamonds.y + this.size;
+    const diamondBottom = diamonds.y + this.height;
 
     const crossLeft =
       diamondLeft <= ninjaRight && diamondLeft >= ninjaLeft;

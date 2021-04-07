@@ -1,91 +1,129 @@
 html {
-    box-sizing: border-box;
-  }
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
-  /* ---- typography ---- */
-  @font-face {
-    font-family: Samureix;
-    src: url("./fonts/Samureix-51ylz.ttf");
+  box-sizing: border-box;
 }
-  body {
-    color: #111;
-    font-family: Samureix;
-    font-size: 16px;
-    line-height: 147%;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- typography ---- */
+@font-face {
+  font-family: Samureix;
+  src: url('./fonts/Samureix-51ylz.ttf');
+}
+@font-face {
+  font-family: Raiderz;
+  src: url('./fonts/Raiderz-MpYB.ttf');
+}
+body {
+  color: #111;
+  font-family: Samureix;
+  font-size: 16px;
+  line-height: 147%;
+}
+
+p {
+  margin: 150px;
+  font-size: 50px;
+  color: black;
+  font-family: Raiderz;
+  text-align: center;
+}
+
+button {
+  font-family: Raiderz;
+  padding: 10px;
+  color: blueviolet;
+  background-color: cadetblue;
+}
+
+h1 {
+  color: darkred;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  font-size: 70px;
+}
+
+/* ---- layout ---- */
+
+html,
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.water-container {
+  margin: 20px 20px;
+  font-family: Raiderz;
+  color: indigo;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 728px; /* Resizes the container to 728px for large screens */
+    margin: 0 auto;
   }
+}
 
-  p {
-    margin: 0;
-  }
+/* ---- components ---- */
 
-  h1{
-    color: darkred;
-  }
+.water {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-  /* ---- layout ---- */
+.introScreen {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 
-  html,
-  body {
-    height: 100vh;
-    overflow: hidden;
-  }
+.water header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
 
-  .water-container {
-    margin: 0 20px;
-  }
+.water .lives {
+  flex: 1;
+}
 
-  @media (min-width: 768px) {
-    .container {
-      max-width: 728px; /* Resizes the container to 728px for large screens */
-      margin: 0 auto;
-    }
-  }
+.water .score {
+  flex: 1;
+}
 
-  /* ---- components ---- */
+.water .label {
+  font-weight: bold;
+}
 
-  .water {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
+.water .value {
+  font-style: italic;
+}
 
-  .water header {
-    height: 50px;
-    display: flex;
-    align-items: center;
-  }
-
-  .water .lives {
-    flex: 1;
-  }
-
-  .water .score {
-    flex: 1;
-  }
-
-  .water .label {
-    font-weight: bold;
-  }
-
-  .water .value {
-    font-style: italic;
-  }
-
-  .water .canvas-container {
-    flex: 1;
-    height: 800px;
-
-  }
-
-
+.canvas-container {
+  flex: 1;
+  height: 800px;
+}
+.intro-background {
+  background-image: url('./img/waterScreen.png');
+  background-size: cover;
+}
+.fWorld-background {
+  background-image: url('./img/gameScreen.png');
+  background-size: cover;
+}
+.gameOver-background {
+  background-image: url('./img/gameOverScreen.png');
+  background-size: cover;
+}

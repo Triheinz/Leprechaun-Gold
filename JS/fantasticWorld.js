@@ -10,6 +10,7 @@ class FWorld {
     this.score = 0;
     this.livesElement = undefined;
     this.scoreElement = undefined;
+    this.framesCounter = 0;
   }
 
   start() {
@@ -25,7 +26,7 @@ class FWorld {
     this.canvas.setAttribute('width', this.containerWidth);
     this.canvas.setAttribute('height', this.containerHeight);
 
-    this.ninja = new Ninja(this.canvas, 5);
+    this.ninja = new Ninja(this.canvas, 5,'/css/img/ninja attack.png');
 
     document.body.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowUp') this.ninja.setDirection('up');
@@ -39,15 +40,16 @@ class FWorld {
 
   startLoop() {
     const loop = () => {
+      this.framesCounter++;
       if (Math.random() > 0.96) {
         const randomY = Math.floor((this.canvas.height - 20) * Math.random());
-        const newfire = new Fire(this.canvas, randomY, 5);
+        const newfire = new Fire(this.canvas, randomY, 5, 'css/img/Fire Ball.png');
         this.fire.push(newfire);
       }
 
       if (Math.random() > 0.98) {
-        const randomY = Math.floor((this.canvas.height - 15) * Math.random());
-        const newDiamond = new Diamond(this.canvas, randomY, 3);
+        const randomY = Math.floor((this.canvas.height - 30) * Math.random());
+        const newDiamond = new Diamond(this.canvas, randomY, 3, '/css/img/diamond.png');
         this.diamond.push(newDiamond);
       }
 
@@ -69,7 +71,7 @@ class FWorld {
 
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-      this.ninja.draw();
+      this.ninja.draw(this.framesCounter);
       this.fire.forEach((fire) => {
         fire.draw();
       });
@@ -98,6 +100,7 @@ class FWorld {
     } else if (event.keyCode === 40) {
       this.ninja.setDirection('down');
     }
+
   }
 
   checkHurt() {
