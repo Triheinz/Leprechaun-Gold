@@ -1,4 +1,4 @@
-class Clovers {
+class Diamond {
   constructor(canvas, positionY, speed) {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext('2d');
@@ -18,9 +18,9 @@ class Clovers {
   }
 
   isInsideScreen() {
-    const cloversRight = this.x + this.size;
+    const diamondRight = this.x + this.size;
     const screenLeft = 0;
-    const isInside = cloversRight > screenLeft;
+    const isInside = diamondRight > screenLeft;
 
     return isInside;
   }

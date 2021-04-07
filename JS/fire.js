@@ -1,4 +1,4 @@
-class Humans{
+class Fire{
   constructor(canvas, positionY, speed){
     this.canvas= canvas;
     this.ctx =  this.canvas.getContext("2d");
@@ -19,9 +19,9 @@ class Humans{
   }
 
   isInsideScreen(){
-    const humanRight =  this.x + this.size;
+    const fireRight =  this.x + this.size;
     const screenLeft = 0;
-    const isInside = humanRight > screenLeft;
+    const isInside = fireRight > screenLeft;
 
     return isInside;
 

@@ -1,39 +1,37 @@
-let rainbow;
+let water;
 let introScreen;
 let fWorldScreen;
 let gameOverScreen;
 
-function buildDom(htmlString){
-const tempDiv = document.createElement('div');
-tempDiv.innerHTML = htmlString;
-return tempDiv.children [0];
+function buildDom(htmlString) {
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = htmlString;
+  return tempDiv.children[0];
 }
 
 function createIntroScreen() {
   introScreen = buildDom(`<main>
-      <h1>Leprechaum Gold</h1>
+      <h1>Water Ninja</h1>
       <button> Start </button>
     </main>
     `);
 
-    document.body.appendChild(introScreen);
-    const startButton = introScreen.querySelector('button');
+  document.body.appendChild(introScreen);
+  const startButton = introScreen.querySelector('button');
 
-    startButton.addEventListener('click', startGame);
-
+  startButton.addEventListener('click', startGame);
 }
 
 function removeIntroScreen() {
   introScreen.remove();
-
 }
 
 function createfWorldScreen() {
   fWorldScreen = buildDom(`
-  <main class ="rainbow container">
+  <main class ="water container">
     <header>
-      <div class="gold">
-        <span class ="label"> Gold: </span>
+      <div class="lives">
+        <span class ="label"> Lives: </span>
         <span class ="value"></span>
       </div>
 
@@ -76,7 +74,7 @@ function removeGameOverScreen() {
 
 function startGame() {
   removeIntroScreen();
-  if (gameOverScreen){
+  if (gameOverScreen) {
     removeGameOverScreen();
   }
   createfWorldScreen();
@@ -91,5 +89,4 @@ function endGame(score) {
   createGameOverScreen(score);
 }
 
-
-window.addEventListener('load',createIntroScreen);
+window.addEventListener('load', createIntroScreen);
