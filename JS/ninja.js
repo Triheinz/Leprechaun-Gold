@@ -60,8 +60,7 @@ class Ninja {
   }
 
   draw() {
-    this.ctx.fillStyle = '#66D3FA';
-    this.ctx.fillRect(this.x, this.y, this.size, this.size);
+    
   }
 
   didHurt(fire) {

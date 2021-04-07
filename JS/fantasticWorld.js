@@ -131,7 +131,7 @@ class FWorld {
   }
 
   gameOver() {
-    this.gameisOver = true;
+    this.gameIsOver = true;
     endGame(this.score);
   }
 
