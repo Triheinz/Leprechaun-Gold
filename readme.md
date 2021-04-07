@@ -1,8 +1,8 @@
-# LEPRECHAUN GOLD
+# Water Ninja
 
 ## Description
 
-The leprechaun is trying to get back home, but the greedy humans wont let him! You need to help him get home without loosing his god on the way. Each time the human reaches the gold pot our beloved leprechaun will be loosing it.
+The Water ninja is trying to leave the fantasy world alive with her diamonds. Help her avoid the fire balls to get back home safe!
 
 ## MVP (DOM - CANVAS)
 
