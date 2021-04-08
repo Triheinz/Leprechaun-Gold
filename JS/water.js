@@ -11,15 +11,18 @@ function buildDom(htmlString) {
 
 function createIntroScreen() {
   introScreen = buildDom(`<main>
-      <div class="introScreen">
+
       <h1>Water Ninja</h1>
+      <p>Keep Tomoe Gozen alive by capturing the ambar gems that add power to her life.<br />
+      Avoid at all cost the blue fire balls that this Magic World trows to those who daire enter in it </p>
       <button> Start </button>
-      </div>
+
     </main>
     `);
 
   document.body.appendChild(introScreen);
-  document.body.classList.add("intro-background")
+
+  document.body.classList.add('intro-background');
   const startButton = introScreen.querySelector('button');
 
   startButton.addEventListener('click', startGame);
@@ -28,11 +31,12 @@ function createIntroScreen() {
 function removeIntroScreen() {
   introScreen.remove();
   document.body.classList.remove('intro-background');
+
 }
 
 function createfWorldScreen() {
   fWorldScreen = buildDom(`
-  <main class ="water-container">
+  <div class ="water-container">
     <header>
       <div class="lives">
         <span class ="label"> Lives: </span>
@@ -48,10 +52,11 @@ function createfWorldScreen() {
     <div class="canvas-container">
       <canvas></canvas>
     </div>
-  </main>
+  </div>
     `);
   document.body.appendChild(fWorldScreen);
   document.body.classList.add('fWorld-background');
+
   return fWorldScreen;
 }
 
@@ -63,11 +68,11 @@ function removefWorldScreen() {
 function createGameOverScreen(score) {
   gameOverScreen = buildDom(`
     <main>
-    <div class="gameOver">
+
     <h1>Game over</h1>
     <p>Your score:<span>${score}</span></p>
     <button>Restart</button>
-    </div>
+
     </main>
   `);
   const button = gameOverScreen.querySelector('button');
@@ -75,11 +80,13 @@ function createGameOverScreen(score) {
 
   document.body.appendChild(gameOverScreen);
   document.body.classList.add('gameOver-background');
+
 }
 
 function removeGameOverScreen() {
   gameOverScreen.remove();
   document.body.classList.remove('gameOver-background');
+  
 }
 
 function startGame() {

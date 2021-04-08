@@ -2,13 +2,11 @@ class Fire{
   constructor(canvas, positionY, speed, fireImgSrc){
     this.canvas= canvas;
     this.ctx =  this.canvas.getContext("2d");
-    this.width = 20;
-    this.height= 20;
+    this.width = 30;
+    this.height= 30;
     this.x = this.canvas.width;
     this.y = positionY;
     this.speed = speed;
-    this.width = 20;
-    this.height = 20;
     this.image = new Image();
     this.image.src = fireImgSrc;
     this.frames = 8;
@@ -32,7 +30,7 @@ class Fire{
   }
 
   animate(framesCounter){
-    if(framesCounter % 2 === 0) {
+    if(framesCounter % 1 === 0) {
       this.framesIndex++
 
       if(this.framesIndex > 8) this.framesIndex = 0;

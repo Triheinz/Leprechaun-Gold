@@ -4,14 +4,14 @@ class Ninja {
     this.ctx = this.canvas.getContext('2d');
 
     this.lives = lives;
-    this.width = 50;
-    this.height = 100;
+    this.width = 90;
+    this.height = 130;
     this.x = 50;
     this.y = this.canvas.height / 2 - this.width / 2;
 
     this.directionx = 0;
     this.directiony = 0;
-    this.speed = 3;
+    this.speed = 4;
 
     this.image = new Image();
     this.image.src = ninjaImgSrc;

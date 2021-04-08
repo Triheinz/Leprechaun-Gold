@@ -5,8 +5,8 @@ class Diamond {
     this.x = this.canvas.width;
     this.y = positionY;
     this.speed = speed;
-    this.width = 30;
-    this.height = 30;
+    this.width = 20;
+    this.height = 25;
     this.image = new Image();
     this.image.src = diamondImgSrc;
 
@@ -30,7 +30,7 @@ class Diamond {
   }
 
   isInsideScreen() {
-    const diamondRight = this.x + this.size;
+    const diamondRight = this.x + this.width;
     const screenLeft = 0;
     const isInside = diamondRight > screenLeft;
 

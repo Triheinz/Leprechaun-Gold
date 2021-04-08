@@ -11,6 +11,8 @@ class FWorld {
     this.livesElement = undefined;
     this.scoreElement = undefined;
     this.framesCounter = 0;
+    this.backgroundMusic = new Audio('/audio/gameAudio.mp3');
+    this.overMusic = new Audio('/audio/GameOver.mp3');
   }
 
   start() {
@@ -26,7 +28,8 @@ class FWorld {
     this.canvas.setAttribute('width', this.containerWidth);
     this.canvas.setAttribute('height', this.containerHeight);
 
-    this.ninja = new Ninja(this.canvas, 5,'/css/img/ninja attack.png');
+    this.ninja = new Ninja(this.canvas, 5, '/css/img/ninja attack.png');
+    this.backgroundMusic.play();
 
     document.body.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowUp') this.ninja.setDirection('up');
@@ -42,14 +45,24 @@ class FWorld {
     const loop = () => {
       this.framesCounter++;
       if (Math.random() > 0.96) {
-        const randomY = Math.floor((this.canvas.height - 20) * Math.random());
-        const newfire = new Fire(this.canvas, randomY, 5, 'css/img/Fire Ball.png');
+        const randomY = Math.floor((this.canvas.height - 30) * Math.random());
+        const newfire = new Fire(
+          this.canvas,
+          randomY,
+          5,
+          'css/img/Fire Ball.png'
+        );
         this.fire.push(newfire);
       }
 
-      if (Math.random() > 0.98) {
-        const randomY = Math.floor((this.canvas.height - 30) * Math.random());
-        const newDiamond = new Diamond(this.canvas, randomY, 3, '/css/img/diamond.png');
+      if (Math.random() > 0.97) {
+        const randomY = Math.floor((this.canvas.height - 25) * Math.random());
+        const newDiamond = new Diamond(
+          this.canvas,
+          randomY,
+          3,
+          '/css/img/diamond.png'
+        );
         this.diamond.push(newDiamond);
       }
 
@@ -100,7 +113,6 @@ class FWorld {
     } else if (event.keyCode === 40) {
       this.ninja.setDirection('down');
     }
-
   }
 
   checkHurt() {
@@ -135,6 +147,8 @@ class FWorld {
 
   gameOver() {
     this.gameIsOver = true;
+    this.backgroundMusic.pause();
+    this.overMusic.play();
     endGame(this.score);
   }
 
