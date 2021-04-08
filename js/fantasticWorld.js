@@ -11,8 +11,8 @@ class FWorld {
     this.livesElement = undefined;
     this.scoreElement = undefined;
     this.framesCounter = 0;
-    this.backgroundMusic = new Audio('/audio/gameAudio.mp3');
-    this.overMusic = new Audio('/audio/GameOver.mp3');
+    this.backgroundMusic = new Audio('audio/gameAudio.mp3');
+    this.overMusic = new Audio('audio/GameOver.mp3');
   }
 
   start() {
@@ -28,7 +28,7 @@ class FWorld {
     this.canvas.setAttribute('width', this.containerWidth);
     this.canvas.setAttribute('height', this.containerHeight);
 
-    this.ninja = new Ninja(this.canvas, 5, '/css/img/ninja attack.png');
+    this.ninja = new Ninja(this.canvas, 5, 'css/img/ninja attack.png');
     this.backgroundMusic.play();
 
     document.body.addEventListener('keydown', (event) => {
@@ -61,7 +61,7 @@ class FWorld {
           this.canvas,
           randomY,
           3,
-          '/css/img/diamond.png'
+          'css/img/diamond.png'
         );
         this.diamond.push(newDiamond);
       }

@@ -15,20 +15,17 @@ body {
 /* ---- typography ---- */
 @font-face {
   font-family: Samureix;
-  src: url('/css/fonts/Samureix-51ylz.ttf');
+  src: url('../css/fonts/Samureix-51ylz.ttf');
 }
 @font-face {
   font-family: Raiderz;
-  src: url('/css/fonts/Raiderz-MpYB.ttf');
+  src: url('../css/fonts/Raiderz-MpYB.ttf');
 }
 body {
   color: #111;
   font-family: Samureix;
   font-size: 16px;
-
 }
-
-
 
 /* ---- layout ---- */
 
@@ -38,7 +35,6 @@ body {
   overflow: hidden;
 }
 
-
 @media (min-width: 768px) {
   .container {
     max-width: 728px; /* Resizes the container to 728px for large screens */
@@ -47,7 +43,6 @@ body {
 }
 
 /* ---- components ---- */
-
 
 main {
   position: absolute;
@@ -62,7 +57,6 @@ main {
   text-align: center;
   align-items: center;
   padding: 50px;
-
 }
 main h1 {
   color: darkred;
@@ -78,7 +72,7 @@ main p {
   font-size: 20px;
 }
 
-main button{
+main button {
   font-family: Raiderz;
   padding: 20px 30px;
   color: darkred;
@@ -86,9 +80,8 @@ main button{
   border: 2px solid darkslategray;
   border-radius: 7px;
   font-size: 20px;
-
 }
-.water-container header{
+.water-container header {
   display: flex;
   justify-content: space-around;
   color: purple;
@@ -100,14 +93,14 @@ main button{
   height: 580px;
 }
 .intro-background {
-  background-image: url('/css/img/waterScreen.png');
+  background-image: url('../css/img/waterScreen.png');
   background-size: cover;
 }
 .fWorld-background {
-  background-image: url('/css/img/gameScreen.png');
+  background-image: url('../css/img/gameScreen.png');
   background-size: cover;
 }
 .gameOver-background {
-  background-image: url('/css/img/gameOverScreen.png');
+  background-image: url('../css/img/gameOverScreen.png');
   background-size: cover;
 }

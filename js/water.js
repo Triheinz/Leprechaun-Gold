@@ -14,7 +14,7 @@ function createIntroScreen() {
 
       <h1>Water Ninja</h1>
       <p>Keep Tomoe Gozen alive by capturing the ambar gems that add power to her life.<br />
-      Avoid at all cost the blue fire balls that this Magic World trows to those who daire enter in it </p>
+      Avoid at all cost the blue fire balls that this Magic World throws to those who dare to enter in it </p>
       <button> Start </button>
 
     </main>
@@ -86,7 +86,7 @@ function createGameOverScreen(score) {
 function removeGameOverScreen() {
   gameOverScreen.remove();
   document.body.classList.remove('gameOver-background');
-  
+
 }
 
 function startGame() {
