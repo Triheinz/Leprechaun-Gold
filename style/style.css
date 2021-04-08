@@ -100,14 +100,14 @@ main button{
   height: 580px;
 }
 .intro-background {
-  background-image: url('./img/waterScreen.png');
+  background-image: url('/css/img/waterScreen.png');
   background-size: cover;
 }
 .fWorld-background {
-  background-image: url('./img/gameScreen.png');
+  background-image: url('/css/img/gameScreen.png');
   background-size: cover;
 }
 .gameOver-background {
-  background-image: url('./img/gameOverScreen.png');
+  background-image: url('/css/img/gameOverScreen.png');
   background-size: cover;
 }
