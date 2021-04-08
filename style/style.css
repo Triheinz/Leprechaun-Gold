@@ -15,11 +15,11 @@ body {
 /* ---- typography ---- */
 @font-face {
   font-family: Samureix;
-  src: url('./fonts/Samureix-51ylz.ttf');
+  src: url('/css/fonts/Samureix-51ylz.ttf');
 }
 @font-face {
   font-family: Raiderz;
-  src: url('./fonts/Raiderz-MpYB.ttf');
+  src: url('/css/fonts/Raiderz-MpYB.ttf');
 }
 body {
   color: #111;
