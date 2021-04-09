@@ -223,4 +223,4 @@ Definition of the different states and their transition (transition functions)
 
 ### Slides
 
-//URls for the project presentation (slides) [https://prezi.com/p/edit/vfotfsdyvrkb/](
+//URls for the project presentation (slides) [https://prezi.com/view/kGQg1tZgmmGJCv09j9eY/](
