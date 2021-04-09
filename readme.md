@@ -6,36 +6,38 @@ The Water ninja is trying to leave the fantasy world alive with her diamonds. He
 
 ## MVP (DOM - CANVAS)
 
-DOM-CANVAS, This is a game where the player will move the character by avoiding the enemies inside a drawn canvas.
+DOM-CANVAS, This is a game where the ninja will move the character by avoiding the fire inside a drawn canvas.
 
 ## Backlog
 
 Score
-
-Gold Level
+lives Level
+3 Screens
+More ninjas
+hit sound effects
 
 ## Data structure
 
-**Rainbow**
+**water**
 
 ```js
-let game;
-let splashScreen;
+let water;
+let introScreen;
 let gameScreen;
 let gameOverScreen;
 
 function buildDom(htmlString) {
   const tempDiv;
 }
-function createRainbowScreen() {
-  rainbowScreen = buildDom();
+function createwaterScreen() {
+  waterScreen = buildDom();
   const startButton;
 }
-function removeRainbowScreen() {}
-function createFantasticWorldScreen() {
+function removewaterScreen() {}
+function createfWorldScreen() {
   gameScreen = buildDom;
 }
-function removeFantasticWorldScreen() {}
+function removefWorldScreen() {}
 function buildGameOverScreen() {}
 function removeGameOverScreen() {}
 function startGame() {}
@@ -45,12 +47,12 @@ function endGame(score) {}
 **Fantastic World**
 
 ```js
-class fantasticWorld{
+class fWorld{
   constructor() {
     this.canvas
     this.ctx
-    this.enemies
-    this.player
+    this.fire
+    this.ninja
     this.gameIsOver
     this.gameScreen
     this.score
@@ -67,13 +69,13 @@ class fantasticWorld{
     this.containerHeight
     this.canvas.setAttribute()
     this.canvas.setAttribute()
-    this.player
+    this.ninja
 function handleKeyDown() {
     }
 }
    startLoop() {
       }
-   checkCollisions() {
+   checkHurt() {
    }
   gameOver() {
   }
@@ -83,10 +85,10 @@ function handleKeyDown() {
 
 ```
 
-**Leprechaun**
+**Ninja**
 
 ```js
-class leprechaun(){
+class Ninja(){
 	constructor() {
     this.canvas
     this.ctx
@@ -104,23 +106,23 @@ class leprechaun(){
   handleScreenCollision() {
     const screenTop
     const screenBottom
-    const playerTop
-    const playerBottom
+    const ninjaTop
+    const ninjaBottom
 
   removeLife() {
     this.lives
   }
   draw() {
   }
-  didSteal(enemy) {
-    const playerLeft
-    const playerRight
-    const playerTop
-    const playerBottom
-    const enemyLeft
-    const enemyRight
-    const enemyTop
-    const enemyBottom
+  didSteal(fire) {
+    const ninjaLeft
+    const ninjaRight
+    const ninjaTop
+    const ninjaBottom
+    const fireLeft
+    const fireRight
+    const fireTop
+    const fireBottom
 
 
     const crossLeft
@@ -133,10 +135,10 @@ class leprechaun(){
 
 ```
 
-**Humans**
+**fire**
 
 ```js
-class Enemy {
+class fire {
   constructor() {
     this.canvas
     this.ctx
@@ -159,56 +161,55 @@ function isInsideScreen() {
 Definition of the different states and their transition (transition functions)
 
 ```js
-- RainbowScreen()
-  - buildRainbow()
+- waterScreen()
+  - createIntroScreen()
   - addEventListener(startGame)
 
-- FantasticWorldscreen()
+- fWorldscreen()
   - game.start()
-  - leprechaun.updatePosition
-  - leprechaun.removeGold
-  - humans.updatePosition
-  - humans.steals
-  - humans.updatePosition
-  - humans.screenCollide
-  - lepreachun.sreenCollide
+  - Ninja.updatePosition
+  - Ninja.removelives
+  - fire.updatePosition
+  - fire.hurt
+  - fire.updatePosition
+  - fire.screenCollide
+  - ninja.sreenCollide
   - create new Game()
 
 - gameOver()
   - buildGameOver()
-  - buildWinGame
   - addEventListener(startGame)
 ```
 
-- rainbowScreen: welcome the player and explain the rules, press play
-- fantasticWorldScreen: player help the leprechaun keep his gold pot avoiding that humans take it away
-- gameoverScreen: If the player fails helping the leprechaun he will receive a looser message and the fantastic world will encourage the player to play again to accomplish the leprechaun journey if player wins will receive a winner message from the leprechaun thanking the player for helping him get home
+- waterScreen: welcome the ninja and explain the rules, press play
+- fWorldScreen: ninja help the Ninja keep his lives pot avoiding that fire take it away
+- gameoverScreen: If the ninja fails helping the Ninja he will receive a looser message and the fantastic world will encourage the ninja to play again to accomplish the Ninja journey if ninja wins will receive a winner message from the Ninja thanking the ninja for helping him get home
 
 ## Task
 
 //Task definition in order of priority
 
-- Rainbow - buildDom
-- Rainbow - createRainbowScreen
-- Rainbow - removeRainbowScreen
-- Rainbow - createFantasticWorldScreen
-- Rainbow - removeFantasticWorldScreen
-- Rainbow - buildGameOverScreen
-- Rainbow - removeGameOverScreen
-- Rainbow - startGame
-- Rainbow - endGame
-- Fantastic World - start
-- Fantastic World - handleKey
-- Fantastic World - startLoop
-- Fantastic World - checkCollisions
-- Fantastic World - gameOver
-- Fantastic World - updateGameStats
-- Leprechaun - setDirection
-- Leprechaun - updatePosition
-- Leprechaun - handleScreenCollision
-- Humans - draw
-- Humans - update position
-- Humans - In side Screen
+- water - buildDom
+- water - createwaterScreen
+- water - removewaterScreen
+- water - createfWorldScreen
+- water - removefWorldScreen
+- water - buildGameOverScreen
+- water - removeGameOverScreen
+- water - startGame
+- water - endGame
+- f World - start
+- f World - handleKey
+- f World - startLoop
+- f World - checkCollisions
+- f World - gameOver
+- f World - updateGameStats
+- Ninja - setDirection
+- Ninja - updatePosition
+- Ninja - handleScreenCollision
+- fire - draw
+- fire - update position
+- fire - In side Screen
 
 ## Links
 
@@ -218,8 +219,8 @@ Definition of the different states and their transition (transition functions)
 
 ### Git
 
-//URls for the project repo and deploy [Link Repo](https://github.com/Triheinz/collision-game.git) [Link Deploy](http://github.com/)
+//URls for the project repo and deploy [Link Repo]() [Link Deploy](https://triheinz.github.io/Water-Ninja/)
 
 ### Slides
 
-//URls for the project presentation (slides) [Link Slides.com](
+//URls for the project presentation (slides) [https://prezi.com/p/edit/vfotfsdyvrkb/](

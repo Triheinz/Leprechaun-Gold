@@ -31,7 +31,6 @@ function createIntroScreen() {
 function removeIntroScreen() {
   introScreen.remove();
   document.body.classList.remove('intro-background');
-
 }
 
 function createfWorldScreen() {
@@ -80,13 +79,11 @@ function createGameOverScreen(score) {
 
   document.body.appendChild(gameOverScreen);
   document.body.classList.add('gameOver-background');
-
 }
 
 function removeGameOverScreen() {
   gameOverScreen.remove();
   document.body.classList.remove('gameOver-background');
-
 }
 
 function startGame() {
